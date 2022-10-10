@@ -1,4 +1,6 @@
 ﻿using SOA3;
 
 CalculationSaver calculationSaver = new CalculationSaver();
-Console.WriteLine(calculationSaver.CalculateAndSave(3, 2, 2));
+int Calc(int a, int b) => a + b;
+
+Console.WriteLine(calculationSaver.CalculateAndSave(Calc, 3, 2));

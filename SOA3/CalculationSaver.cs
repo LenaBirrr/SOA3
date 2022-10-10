@@ -8,20 +8,13 @@ namespace SOA3
 {
     public class CalculationSaver
     {
-        public int CalculateAndSave(int a, int b, int c)
+        public delegate int CalculationOperation(int a, int b); 
+        public int CalculateAndSave(CalculationOperation operation, int a, int b)
         {
             StreamWriter sr = new StreamWriter("test");
-            if(c==1)
-            {
-                sr.Write(a - b);
-                return a - b;
-            }
-            else
-            {
-                sr.Write(a + b);
-                return a + b;
-            }
-               
+            sr.Write(operation(a, b));
+            return operation(a, b);
+           
         }
     }
 }
