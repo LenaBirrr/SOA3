@@ -8,19 +8,25 @@ namespace SOA3
 {
     public class CalculationSaver
     {
-        public int CalculateAndSave(int a, int b, int c)
+        public enum Operation
+        {
+            Add,
+            Sub
+        }
+        public int CalculateAndSave(int a, int b, Operation c)
         {
             StreamWriter sr = new StreamWriter("test");
-            if(c==1)
+            if(c==Operation.Sub)
             {
                 sr.Write(a - b);
                 return a - b;
             }
-            else
+            else 
             {
                 sr.Write(a + b);
                 return a + b;
             }
+          
                
         }
     }
